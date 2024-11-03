@@ -1,0 +1,8 @@
+{
+    "require": {
+        "react/http": "^1.10",
+        "phpunit/phpunit": "^10.5",
+        "guzzlehttp/guzzle": "^7.9",
+        "altorouter/altorouter": "^2.0"
+    }
+}

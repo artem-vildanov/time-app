@@ -1,0 +1,30 @@
+networks:
+  time-network:
+    driver: bridge
+    name: time-app-network
+    ipam:
+      driver: default
+
+services:
+  time-app:
+    build:
+      dockerfile: app.Dockerfile
+    container_name: time-app
+    networks:
+      - time-network
+    ports:
+      - "80:8080"
+    volumes:
+      - ./:/var/www/app
+
+  time-tests:
+    build:
+      dockerfile: tests.Dockerfile
+    container_name: time-tests
+    depends_on:
+      - time-app
+    networks:
+      - time-network
+    volumes:
+      - ./:/var/www/app
+
